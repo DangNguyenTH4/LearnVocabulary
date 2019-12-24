@@ -7,6 +7,15 @@ public class Word {
 	private String vn;
 	private String example;
 	private String pronun;
+	private String type;
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
 
 	public String getPronun() {
 		return pronun;
@@ -17,7 +26,7 @@ public class Word {
 	}
 
 	public String getEng() {
-		return eng;
+		return StringUtils.upperCase(eng);
 	}
 
 	public void setEng(String eng) {
@@ -45,7 +54,16 @@ public class Word {
 		this.eng = StringUtils.upperCase(eng);
 		this.vn = vn;
 		this.example = example;
-		this.pronun=pronun;
+		this.pronun = pronun;
+	}
+
+	public Word(String eng, String vn, String example, String pronun, String type) {
+		super();
+		this.eng = StringUtils.upperCase(eng);
+		this.vn = vn;
+		this.example = example;
+		this.pronun = pronun;
+		this.type = type;
 	}
 
 	public Word() {

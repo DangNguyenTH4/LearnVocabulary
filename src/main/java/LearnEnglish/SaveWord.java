@@ -8,6 +8,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
@@ -60,7 +61,33 @@ public class SaveWord {
 				br.close();
 		}
 		return words;
-
+	}
+	public void initBasicVocabulary() throws IOException {
+		ListWord temp = readWord();
+		if(temp==null || temp.getLst()==null) {
+			List<Word> l = new ArrayList<Word>();
+			l.add(new Word("Vocabolary file does not true! Please check again in properties file", "", "File từ vựng không đúng. Hãy check lại tại file properties",""));
+			l.add(new Word("Bye","Tạm biệt","","bai"));
+			
+			ListWord lst = new ListWord();
+			lst.setLst(l);
+			saveWord(l);
+		}
+	}
+	public boolean checkIsNewFileName() {
+		System.out.println("check is new File");
+		
+		String file = ReadProperties.getProperty("fileVocabulary");
+		System.out.println(file);
+		return !fileName.equals(file);
+	}
+	public void setNewFileName() {
+		System.out.println("Set new file");
+		String file = ReadProperties.getProperty("fileVocabulary");
+		System.out.println(file);
+		if(!StringUtils.isEmpty(file)) {
+			fileName = file;
+		}
 	}
 
 }

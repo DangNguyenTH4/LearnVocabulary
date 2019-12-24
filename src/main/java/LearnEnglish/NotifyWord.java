@@ -24,6 +24,6 @@ public class NotifyWord {
 		if(StringUtils.isEmpty(word.getPronun())) {
 			word.setPronun("");
 		}
-		trayIcon.displayMessage(word.getEng()+" : \\"+word.getPronun()+"\\ : "+word.getVn(), word.getExample(), MessageType.INFO);
+		trayIcon.displayMessage(word.getEng()+" : \\"+word.getPronun()+"\\ : "+word.getVn(), word.getExample(), MessageType.WARNING);
 	}
 }
