@@ -18,7 +18,7 @@ public class Learn implements Runnable {
 	}
 
 	public Learn() {
-		sw = new SaveWord();
+		sw = SaveWordFactory.getInstance();
 		nt = new NotifyWord();
 		loadProps();
 	}
@@ -36,6 +36,7 @@ public class Learn implements Runnable {
 				Thread.sleep(time);
 				if(sw.checkIsNewFileName()) {
 					System.out.println("new file");
+					sw = SaveWordFactory.getInstance();
 					sw.setNewFileName();
 					i=-1;size=0;
 				}
