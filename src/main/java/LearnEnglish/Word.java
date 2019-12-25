@@ -1,7 +1,5 @@
 package LearnEnglish;
 
-import org.apache.commons.lang3.StringUtils;
-
 public class Word {
 	private String eng;
 	private String vn;
@@ -26,11 +24,11 @@ public class Word {
 	}
 
 	public String getEng() {
-		return StringUtils.upperCase(eng);
+		return eng;
 	}
 
 	public void setEng(String eng) {
-		this.eng = StringUtils.upperCase(eng);
+		this.eng = eng;
 	}
 
 	public String getVn() {
@@ -51,7 +49,7 @@ public class Word {
 
 	public Word(String eng, String vn, String example, String pronun) {
 		super();
-		this.eng = StringUtils.upperCase(eng);
+		this.eng = eng;
 		this.vn = vn;
 		this.example = example;
 		this.pronun = pronun;
@@ -59,7 +57,7 @@ public class Word {
 
 	public Word(String eng, String vn, String example, String pronun, String type) {
 		super();
-		this.eng = StringUtils.upperCase(eng);
+		this.eng = eng;
 		this.vn = vn;
 		this.example = example;
 		this.pronun = pronun;

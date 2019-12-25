@@ -24,6 +24,7 @@ public class NotifyWord {
 		if(StringUtils.isEmpty(word.getPronun())) {
 			word.setPronun("");
 		}
+		System.out.println("Notify");
 		trayIcon.displayMessage(word.getEng()+" : \\"+word.getPronun()+"\\ : "+word.getVn(), word.getExample(), MessageType.WARNING);
 	}
 }

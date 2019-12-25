@@ -8,6 +8,8 @@ public class Learn implements Runnable {
 	private SaveWord sw;
 	private NotifyWord nt;
 
+	private Boolean continueLearn;
+	
 	int time = 10000;
 
 	private void loadProps() {
@@ -22,6 +24,12 @@ public class Learn implements Runnable {
 		nt = new NotifyWord();
 		loadProps();
 	}
+	public Learn(Boolean continueLearn) {
+		this.continueLearn = continueLearn;
+		sw = SaveWordFactory.getInstance();
+		nt = new NotifyWord();
+		loadProps();
+	}
 
 	@Override
 	public void run() {
@@ -29,15 +37,17 @@ public class Learn implements Runnable {
 		int size = 0;
 		ListWord lst = null;
 		System.out.println("Time: " + time);
-		while (true) {
+		while (continueLearn) {
+			System.out.println(continueLearn);
 
 			try {
 				System.gc();
 				Thread.sleep(time);
-				if(sw.checkIsNewFileName()) {
+				if(sw.checkIsChangeProperties(time)) {
 					System.out.println("new file");
 					sw = SaveWordFactory.getInstance();
 					sw.setNewFileName();
+					loadProps();
 					i=-1;size=0;
 				}
 				if (i >= size || i == -1) {
@@ -66,6 +76,9 @@ public class Learn implements Runnable {
 			prepareSuccess=false;
 		}
 		return prepareSuccess;
+	}
+	public void setContinue(boolean con) {
+		this.continueLearn = con;
 	}
 
 }

@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class ReadProperties {
 
 	private static Properties props;
@@ -48,7 +50,7 @@ public class ReadProperties {
 		}
 		String result = getInstance().getProperty(propertyName);
 		getInstance().clear();
-		return result;
+		return StringUtils.trim(result);
 	}
 
 	public static String setProperty(String propertyName, String value) {

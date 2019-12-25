@@ -15,7 +15,7 @@
 	{"eng":"several","type":"(det)","vn":"vài, một vài","example":"Listen to the articles several times!"},
 	{"eng":"united","type":"(adj)","vn":"đoàn kết","example":"We need to become a more united team."},
 	{"eng":"historical","type":"(adj)","vn":"thuộc về lịch sử, mang tính lịch sử","example":"This sight is historical."},
-	{"eng":"hot","type":"(adj)","vn":"nóng","example":"It's too hot in here, can we turn down the heating?"},
+	{"eng":"hot","type":"(adj)","vn":"nóng","example":"It's too hot in here, can we turn down the heating?"},
 	{"eng":"useful","type":"(adj)","vn":"có lợi, hữu ích","example":"Exercise is very useful for us."},
 	{"eng":"mental","type":"(adj)","vn":"(thuộc) tinh thần, trí óc","example":"Mental exercise sounded good to Stacie."},
 	{"eng":"scared","type":"(adj)","vn":"sợ hãi","example":"He's scared of spiders."},
@@ -29,7 +29,7 @@
 	{"eng":"medical","type":"(adj)","vn":"(thuộc) y học, y khoa","example":"We will also be better looked after by a more modern medical system."},
 	{"eng":"traditional","type":"(adj)","vn":"(thuộc) truyền thống","example":"The dancers were wearing traditional African costume."},
 	{"eng":"federal","type":"(adj)","vn":"(thuộc) liên bang","example":"Federal law regulates trade with other countries."},
-	{"eng":"entire","type":"(adj)","vn":"toàn bộ, toàn thể","example":"He'd spent the entire journey asleep."},
+	{"eng":"entire","type":"(adj)","vn":"toàn bộ, toàn thể","example":"He'd spent the entire journey asleep."},
 	{"eng":"strong","type":"(adj)","vn":"mạnh mẽ","example":"Love is a very powerful, strong emotion."},
 	{"eng":"actual","type":"(adj)","vn":"thực sự, thực tế, có thật","example":"I’m not joking. Those were his actual words."},
 	{"eng":"dangerous","type":"(adj)","vn":"nguy hiểm","example":"The traffic here is very dangerous for children."},
@@ -52,4 +52,3 @@
 	{"eng":"serious","type":"(adj)","vn":"nghiêm trọng, trầm trọng, nặng","example":"She has a serious illness."}
   ]
 }
-

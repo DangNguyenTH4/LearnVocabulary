@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListWord {
-	List<Word> lst;
+	private List<Word> lst;
 
 	public List<Word> getLst() {
 		return lst;
