@@ -13,6 +13,7 @@ public class Learn implements Runnable {
 	int time = 10000;
 
 	private void loadProps() {
+		System.out.println("Load props time");
 		this.time = Integer.parseInt(ReadProperties.getProperty("time"));
 		if(this.time<10000) {
 			this.time=10000;
@@ -42,7 +43,7 @@ public class Learn implements Runnable {
 
 			try {
 				System.gc();
-				Thread.sleep(time);
+//				Thread.sleep(time);
 				if(sw.checkIsChangeProperties(time)) {
 					System.out.println("new file");
 					sw = SaveWordFactory.getInstance();
@@ -59,13 +60,11 @@ public class Learn implements Runnable {
 					i = 0;
 				}
 				if (i < size) {
-					nt.displayNotify((Word) lst.getLst().get(i));
+					nt.displayNotify((Word) lst.getLst().get(i),time);
 				}
 				i++;
 
 			} catch (IOException e) {
-				e.printStackTrace();
-			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}

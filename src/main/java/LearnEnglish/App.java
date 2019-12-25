@@ -13,7 +13,7 @@ public class App {
 
 		Gui g = new Gui();
 		NotifyWord nc = new NotifyWord();
-		nc.displayNotify(new Word("Xin chao","","",""));
+		nc.displayNotify(new Word("Xin chao","","",""),10000);
 		Boolean c = true;
 		
 //		Learn ln = new Learn();

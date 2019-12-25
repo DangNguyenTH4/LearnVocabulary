@@ -75,9 +75,10 @@ public abstract class SaveWord {
 		String place = ReadProperties.getProperty("placeToStudy");
 		int time = Integer.parseInt(ReadProperties.getProperty("time"));
 
-		System.out.println(place);
-		return !fileName.equals(StringUtils.trim(file)) || !getMethodLearn().equals(StringUtils.trim(place))
-				|| (time != oldTime && oldTime>=10000);
+		System.out.println(place+"----"+file+"===="+time);
+		boolean result= !fileName.equals(StringUtils.trim(file)) || !getMethodLearn().equals(StringUtils.trim(place))
+				|| (time != oldTime && time>=10000);
+		return result;
 	}
 
 	public abstract String getMethodLearn();

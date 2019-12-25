@@ -54,7 +54,8 @@ public class ReadProperties {
 	}
 
 	public static String setProperty(String propertyName, String value) {
-		getInstance().setProperty(propertyName, value);
+		props.clear();
+		props.setProperty(propertyName, value);
 		return getProperty(propertyName);
 	}
 
