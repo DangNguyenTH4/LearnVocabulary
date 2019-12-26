@@ -50,6 +50,14 @@ public class SaveWordOffline extends SaveWord {
 			if (br != null)
 				br.close();
 		}
+		
+		if(words==null){
+			words= new ListWord();
+			words.getLst().add(new Word("File not found or data is not ready.Please check again!", "", "", ""));
+		}
+		else if(words.getLst().size()==0) {
+			words.getLst().add(new Word("You don't have any words. Add please!", "", "", ""));
+		}
 		return words;
 	}
 	@Override
