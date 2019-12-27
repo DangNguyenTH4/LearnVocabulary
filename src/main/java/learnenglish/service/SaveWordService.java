@@ -18,6 +18,7 @@ public class SaveWordService {
 		this.saveWord = SaveWordFactory.getInstance();
 	}
 	public void saveWord() {
+		
 		logger.info("Save word in service save word running ....");
 	}
 }
