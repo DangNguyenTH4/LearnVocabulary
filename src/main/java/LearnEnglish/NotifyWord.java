@@ -36,4 +36,18 @@ public class NotifyWord {
 		System.out.println("Get up notify");
 		tray.remove(trayIcon);
 	}
+	
+//	public void displayNotify(Word word,int time) {
+//		TrayIcon trayIcon = MyTrayIcon.instance();
+//		System.out.println("Notify");
+//		trayIcon.displayMessage(word.getEng()+" : \\"+word.getPronun()+"\\ : "+word.getVn(), word.getExample(), MessageType.ERROR);
+//		System.out.println("sleep notify");
+//		try {
+//			Thread.sleep(time);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		System.out.println("Get up notify");
+//	}
 }
