@@ -18,7 +18,7 @@ public class SaveWordController {
 	@PostMapping("save-word")
 	public Word saveWord(@RequestBody Word word) {
 		logger.info(word.getEng());
-		saveWordService.saveWord();
+		saveWordService.saveWord(word);
 		return word;
 	}
 }
