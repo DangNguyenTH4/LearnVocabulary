@@ -1,5 +1,7 @@
 package learnenglish.repository;
 
+import java.io.IOException;
+
 import org.springframework.util.StringUtils;
 
 import learnenglish.driver.ReadProperties;
@@ -12,7 +14,8 @@ public abstract class SaveWord {
 		return fileName;
 	}
 	
-	public void setFileName() {
+
+	public void setNewFileName() {
 		System.out.println("Set new file");
 		String file = ReadProperties.getProperty("fileVocabulary");
 		System.out.println(file);
@@ -20,13 +23,14 @@ public abstract class SaveWord {
 			fileName = file;
 		}
 	}
-	
+
 	static {
 		String file = ReadProperties.getProperty("fileVocabulary");
 		if (!StringUtils.isEmpty(file)) {
 			fileName = file;
 		}
 	}
+
 	public boolean checkIsChangeProperties(int oldTime) {
 		System.out.println("check is new properties(filename,placeTostudy,time)");
 		String file = ReadProperties.getProperty("fileVocabulary");
@@ -34,15 +38,13 @@ public abstract class SaveWord {
 		int time = Integer.parseInt(ReadProperties.getProperty("time"));
 
 		System.out.println(place+"----"+file+"===="+time);
-		boolean result= !fileName.equals(StringUtils.trimAllWhitespace(file)) || !getType().equals(StringUtils.trimAllWhitespace(place))
+		boolean result= !fileName.equals(StringUtils.trimAllWhitespace(file)) || !getTypeLearn().equals(StringUtils.trimAllWhitespace(place))
 				|| (time != oldTime && time>=10000);
 		return result;
 	}
 
-	public abstract ListWord readWord();
+	
+	public abstract String getTypeLearn();
+	public abstract ListWord readWord() throws IOException;
 	public abstract Word saveWord(Word word);
-	//online offline or other
-	public abstract String getType();
-	
-	
 }

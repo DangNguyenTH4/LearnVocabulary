@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import learnenglish.factory.SaveWordFactory;
+import learnenglish.model.Word;
 import learnenglish.repository.SaveWord;
 
 @Service
@@ -17,7 +18,7 @@ public class SaveWordService {
 		logger.info("Init saveword from save word factory");
 		this.saveWord = SaveWordFactory.getInstance();
 	}
-	public void saveWord() {
+	public void saveWord(Word word) {
 		
 		logger.info("Save word in service save word running ....");
 	}

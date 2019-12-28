@@ -1,5 +1,6 @@
 package learnenglish.model;
 
+
 import java.util.List;
 
 public class ListWord {
