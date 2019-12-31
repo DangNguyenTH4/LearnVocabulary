@@ -45,6 +45,6 @@ public abstract class SaveWord {
 	
 	public abstract String getTypeLearn();
 	public abstract ListWord readWord() throws IOException;
-	public abstract Word saveWord(Word word);
+	public abstract Word saveWord(Word word) throws IOException;
 
 }
