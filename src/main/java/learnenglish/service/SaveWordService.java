@@ -21,12 +21,23 @@ public class SaveWordService {
 		logger.info("Init saveword from save word factory");
 		this.saveWord = SaveWordFactory.getInstance();
 	}
-	public void saveWord(Word word) {
-		
+	public void saveWord(Word word) throws IOException {
 		logger.info("Save word in service save word running ....");
+		saveWord.saveWord(word);
 	}
 	public ListWord readWord() throws IOException {
-		ListWord lst = saveWord.readWord();
-		return lst;
+		ListWord words = saveWord.readWord();
+		if(words==null){
+			words= new ListWord();
+			words.getLst().add(new Word("File not found or data is not ready. Please check again!", "", "", ""));
+		}
+		else if(words.getLst().size()==0) {
+			words.getLst().add(new Word("You don't have any words. Add please!", "", "", ""));
+		}
+		return words;
 	}
+//	public ListWord readWord() throws IOException {
+//		ListWord lst = saveWord.readWord();
+//		return lst;
+//	}
 }

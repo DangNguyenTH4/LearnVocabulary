@@ -9,8 +9,7 @@ public class SaveWordOnline extends SaveWord {
 
 	@Override
 	public String getTypeLearn() {
-		// TODO Auto-generated method stub
-		return null;
+		return "online";
 	}
 
 	@Override
