@@ -21,6 +21,7 @@ public class SaveWordFactory {
 	private static Logger logger = LoggerFactory.getLogger(SaveWordFactory.class);
 	public static SaveWord getInstance() {
 		String placeFile = ReadProperties.getProperty("placeToStudy");
+		logger.info(placeFile);
 		if("online".equals(StringUtils.trimAllWhitespace(placeFile))) {
 			if(swOnline==null) {
 				logger.info("Online Saveword init");
