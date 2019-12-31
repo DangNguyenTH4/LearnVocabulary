@@ -25,17 +25,15 @@ import com.google.gson.GsonBuilder;
 import learnenglish.model.ListWord;
 import learnenglish.model.Word;
 
-public class SaveWordOffline extends SaveWord{
+public class SaveWordOffline extends SaveWord {
 	Logger logger = LoggerFactory.getLogger(SaveWordOffline.class);
+
 	@Override
-<<<<<<< HEAD
 	public String getTypeLearn() {
 		return "offline";
 	}
 
 	@Override
-=======
->>>>>>> bc832572df913b05b3bc8c219207efbe8a179aa4
 	public ListWord readWord() throws IOException {
 		Gson gson = new Gson();
 		ListWord words = null;
@@ -46,13 +44,11 @@ public class SaveWordOffline extends SaveWord{
 
 			words = gson.fromJson(br, ListWord.class);
 			System.out.println(words);
-		}catch (FileNotFoundException e) {
+		} catch (FileNotFoundException e) {
 			logger.error(e.getMessage());
-		}
-		catch (UnsupportedEncodingException e) {
+		} catch (UnsupportedEncodingException e) {
 			logger.error(e.getMessage());
-		}
-		finally {
+		} finally {
 			if (br != null)
 				br.close();
 		}
@@ -60,7 +56,6 @@ public class SaveWordOffline extends SaveWord{
 	}
 
 	@Override
-<<<<<<< HEAD
 	public Word saveWord(Word word) throws IOException {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		ListWord listOld = readWord();
@@ -68,7 +63,7 @@ public class SaveWordOffline extends SaveWord{
 				BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(os, "UTF8"));) {
 			String json = "";
 			if (listOld != null) {
-				listOld.getLst().add(0,word);
+				listOld.getLst().add(0, word);
 				json = gson.toJson(listOld);
 			} else {
 				ListWord ls = new ListWord();
@@ -76,35 +71,24 @@ public class SaveWordOffline extends SaveWord{
 				json = gson.toJson(ls);
 			}
 			bw.write(json);
-		}
-		catch (FileNotFoundException e) {
+		} catch (FileNotFoundException e) {
 			logger.error(e.getMessage());
-		}catch (UnsupportedEncodingException e) {
+		} catch (UnsupportedEncodingException e) {
 			logger.error(e.getMessage());
 		}
-		if(listOld!=null) {
+		if (listOld != null) {
 			return listOld.getLst().get(0);
-		}
-		else {
+		} else {
 			return null;
 		}
 	}
-	
+
 	private boolean isFileExist(String fileName) throws IOException {
 		boolean result = false;
 		Path path = Paths.get(fileName);
-		
-		result = Files.exists(path, new LinkOption[] {LinkOption.NOFOLLOW_LINKS});
-		return result;
-=======
-	public Word saveWord(Word word) {
-		return null;
->>>>>>> bc832572df913b05b3bc8c219207efbe8a179aa4
-	}
 
-	@Override
-	public String getTypeLearn() {
-		return "offline";
+		result = Files.exists(path, new LinkOption[] { LinkOption.NOFOLLOW_LINKS });
+		return result;
 	}
 
 }

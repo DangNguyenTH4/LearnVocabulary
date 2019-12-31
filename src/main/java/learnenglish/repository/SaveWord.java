@@ -46,10 +46,6 @@ public abstract class SaveWord {
 	
 	public abstract String getTypeLearn();
 	public abstract ListWord readWord() throws IOException;
-<<<<<<< HEAD
 	public abstract Word saveWord(Word word) throws IOException;
 
-=======
-	public abstract Word saveWord(Word word);
->>>>>>> bc832572df913b05b3bc8c219207efbe8a179aa4
 }
