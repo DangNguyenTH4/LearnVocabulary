@@ -1,13 +1,9 @@
 package learnenglish.repository;
-
-import java.util.List;
-
 import learnenglish.model.ListWord;
 import learnenglish.model.Word;
 
 public class SaveWordNone extends SaveWord{
 
-	@Override
 	public String getTypeLearn() {
 		
 		return "none";
@@ -22,7 +18,6 @@ public class SaveWordNone extends SaveWord{
 
 	@Override
 	public Word saveWord(Word word) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	

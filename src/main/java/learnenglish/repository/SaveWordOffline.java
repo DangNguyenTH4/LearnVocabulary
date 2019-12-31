@@ -28,11 +28,14 @@ import learnenglish.model.Word;
 public class SaveWordOffline extends SaveWord{
 	Logger logger = LoggerFactory.getLogger(SaveWordOffline.class);
 	@Override
+<<<<<<< HEAD
 	public String getTypeLearn() {
 		return "offline";
 	}
 
 	@Override
+=======
+>>>>>>> bc832572df913b05b3bc8c219207efbe8a179aa4
 	public ListWord readWord() throws IOException {
 		Gson gson = new Gson();
 		ListWord words = null;
@@ -57,6 +60,7 @@ public class SaveWordOffline extends SaveWord{
 	}
 
 	@Override
+<<<<<<< HEAD
 	public Word saveWord(Word word) throws IOException {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		ListWord listOld = readWord();
@@ -92,6 +96,15 @@ public class SaveWordOffline extends SaveWord{
 		
 		result = Files.exists(path, new LinkOption[] {LinkOption.NOFOLLOW_LINKS});
 		return result;
+=======
+	public Word saveWord(Word word) {
+		return null;
+>>>>>>> bc832572df913b05b3bc8c219207efbe8a179aa4
+	}
+
+	@Override
+	public String getTypeLearn() {
+		return "offline";
 	}
 
 }

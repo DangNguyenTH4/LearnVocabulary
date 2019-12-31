@@ -1,5 +1,7 @@
 package learnenglish.repository;
 
+import java.io.IOException;
+
 import learnenglish.model.ListWord;
 import learnenglish.model.Word;
 
@@ -11,7 +13,7 @@ public class SaveWordOnline extends SaveWord {
 	}
 
 	@Override
-	public ListWord readWord() {
+	public ListWord readWord() throws IOException {
 		// TODO Auto-generated method stub
 		return null;
 	}
