@@ -14,8 +14,6 @@ public class LearnEnglishBySpringBootApplication {
 	        SpringApplicationBuilder builder = new SpringApplicationBuilder(LearnEnglishBySpringBootApplication.class);
 	        builder.headless(false);
 	        context = builder.run(args);
-	        
-	        
 	        Application.main(null);
 
 	        

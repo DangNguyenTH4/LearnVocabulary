@@ -69,4 +69,11 @@ public class Word {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public String toString() {
+		return "Word [eng=" + eng + ", vn=" + vn + ", example=" + example + ", pronun=" + pronun + ", type=" + type
+				+ "]";
+	}
+	
+
 }

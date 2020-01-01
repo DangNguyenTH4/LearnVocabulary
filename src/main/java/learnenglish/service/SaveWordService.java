@@ -16,14 +16,19 @@ import learnenglish.repository.SaveWord;
 public class SaveWordService {
 	private SaveWord saveWord;
 	private static Logger logger = LoggerFactory.getLogger(SaveWordService.class);
-	@Autowired
+	
 	public void setSaveWord() {
 		logger.info("Init saveword from save word factory");
 		this.saveWord = SaveWordFactory.getInstance();
 	}
-	public void saveWord(Word word) throws IOException {
+	
+	@Autowired
+	public SaveWordService() {
+		this.saveWord = SaveWordFactory.getInstance();
+	}
+	public String saveWord(Word word) throws IOException {
 		logger.info("Save word in service save word running ....");
-		saveWord.saveWord(word);
+		return saveWord.saveWord(word);
 	}
 	public ListWord readWord() throws IOException {
 		ListWord words = saveWord.readWord();
@@ -36,8 +41,17 @@ public class SaveWordService {
 		}
 		return words;
 	}
-//	public ListWord readWord() throws IOException {
-//		ListWord lst = saveWord.readWord();
-//		return lst;
-//	}
+	public String getFileName() {
+		return saveWord.getFileName();
+	}
+	public void setNewFileName() {
+		saveWord.setNewFileName();
+	}
+	public boolean checkIsChangeProperties(int oldTime) {
+		System.out.println(saveWord==null);
+		return saveWord.checkIsChangeProperties(oldTime);
+	}
+	public String getTypeLearn() {
+		return saveWord.getTypeLearn();
+	}
 }

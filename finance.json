@@ -1,22 +1,262 @@
 {
   "lst": [
     {
-      "eng": "dang",
-      "vn": "dangnt",
-      "example": "hello dang",
-      "pronun": "hello"
+      "eng": "dsang",
+      "vn": "Con gà con",
+      "example": "uh",
+      "pronun": "Hello"
     },
     {
-      "eng": "dang",
-      "vn": "dangnt",
-      "example": "hello dang",
-      "pronun": "hello"
+      "eng": "amortize",
+      "vn": "(món nợ) trả dần, trừ dần",
+      "example": "This company has to amortize the debt because it doesn\u0027t have enough money.",
+      "type": "(v)"
     },
     {
-      "eng": "dang",
-      "vn": "dangnt",
-      "example": "hello dang",
-      "pronun": "hello"
+      "eng": "asset",
+      "vn": "tài sản",
+      "example": "Health is a big asset.",
+      "type": "(n)"
+    },
+    {
+      "eng": "bankruptcy",
+      "vn": "sự vỡ nợ, sự phá sản",
+      "example": "The company declared bankruptcy in 1997.",
+      "type": "(n)"
+    },
+    {
+      "eng": "bond",
+      "vn": "liên kết",
+      "example": "They look for other young people to bond with when their parents don’t seem to “understand.”",
+      "type": "(v)"
+    },
+    {
+      "eng": "boom",
+      "vn": "phất, phát triển nhanh chóng (kinh tế; kinh doanh)",
+      "example": "By 1988, the economy was booming.",
+      "type": "(v)"
+    },
+    {
+      "eng": "estate agent",
+      "vn": "người môi giới bất động sản",
+      "example": "Most people sell their homes through an estate agent.",
+      "type": "(noun phrase)"
+    },
+    {
+      "eng": "capital",
+      "vn": "vốn, tiền vốn",
+      "example": "Companies are having difficulty in raising capital.",
+      "type": "(n)"
+    },
+    {
+      "eng": "certificate of deposit",
+      "vn": "chứng chỉ tiền gửi",
+      "example": "Certificate of deposit, or CDs, pay higher returns.",
+      "type": "(n)"
+    },
+    {
+      "eng": "commodity",
+      "vn": "hàng hoá (vật trao đổi trong thương mại)",
+      "example": "Publicly owned trees, land, and oil become commodities.",
+      "type": "(n)"
+    },
+    {
+      "eng": "cumulative",
+      "vn": "tích lũy, chồng chất",
+      "example": "Building technology is conservative and knowledge about it is cumulative.",
+      "type": "(adj)"
+    },
+    {
+      "eng": "debt",
+      "vn": "nợ, món nợ",
+      "example": "Mr. Morgan is heavily in debt after his company went bankrupt.",
+      "type": "(n)"
+    },
+    {
+      "eng": "deficit",
+      "vn": "sự thâm hụt",
+      "example": "That deficit is now more than $30 billion.",
+      "type": "(n)"
+    },
+    {
+      "eng": "economy",
+      "vn": "nền kinh tế",
+      "example": "But rice is very important to Cambodia\u0027s economy.",
+      "type": "(n)"
+    },
+    {
+      "eng": "entrepreneur",
+      "vn": "doanh nhân",
+      "example": "You\u0027ll find artists, writers, poets, entrepreneurs, musicians, and tourists relaxing together in them.",
+      "type": "(n)"
+    },
+    {
+      "eng": "equity",
+      "vn": "vốn chủ sở hữu",
+      "example": "He was one of the people who have the highest equity.",
+      "type": "(n)"
+    },
+    {
+      "eng": "fiduciary",
+      "vn": "ủy thác",
+      "example": "Solicitors have a fiduciary relationship with their clients.",
+      "type": "(adj)"
+    },
+    {
+      "eng": "fund",
+      "vn": "Quỹ",
+      "example": "He donated a small amount of money to the Red Cross Fund.",
+      "type": "(n)"
+    },
+    {
+      "eng": "gross domestic product",
+      "vn": "tổng sản phẩm quốc nội",
+      "example": "Usually economists measure by a country\u0027s gross domestic product: the value of all goods and services it produces.",
+      "type": "(n)"
+    },
+    {
+      "eng": "stock",
+      "vn": "chứng khoán, cổ phiếu",
+      "example": "There are lot of stock prices on the electronic board.",
+      "type": "(n)"
+    },
+    {
+      "eng": "intrinsic",
+      "vn": "thực chất, nội tại",
+      "example": "Paper money has no intrinsic value. It is useful simply because society says it is.",
+      "type": "(adj)"
+    },
+    {
+      "eng": "invest",
+      "vn": "đầu tư",
+      "example": "Apple is to invest a large amount of money in a new store in Brazil.",
+      "type": "(v)"
+    },
+    {
+      "eng": "investor",
+      "vn": "chủ đầu tư, nhà đầu tư",
+      "example": "There are many investors for this project.",
+      "type": "(n)"
+    },
+    {
+      "eng": "invoice",
+      "vn": "hóa đơn",
+      "example": "She sent me an invoice for $250.",
+      "type": "(n)"
+    },
+    {
+      "eng": "leverage",
+      "vn": "khả năng tạo động lực",
+      "example": "Relationships are great sources of leverage.",
+      "type": "(n)"
+    },
+    {
+      "eng": "liability",
+      "vn": "trách nhiệm pháp lý",
+      "example": "Don\u0027t admit liability for the accident.",
+      "type": "(n)"
+    },
+    {
+      "eng": "money market fund",
+      "vn": "quỹ thị trường tiền tệ",
+      "example": "Another way to save is through a money market fund.",
+      "type": "(n)"
+    },
+    {
+      "eng": "mortgage",
+      "vn": "vay thế chấp",
+      "example": "You may need a mortgage if you want to buy a house.",
+      "type": "(n)"
+    },
+    {
+      "eng": "mutual fund",
+      "vn": "quỹ tương hỗ",
+      "example": "This is a kind of mutual fund.",
+      "type": "(n)"
+    },
+    {
+      "eng": "portfolio",
+      "vn": "Danh sách vốn đầu tư",
+      "example": "The chairman presented a new portfolio at the annual general meeting.",
+      "type": "(n)"
+    },
+    {
+      "eng": "premium",
+      "vn": "phí, khoản chi trả (cao)",
+      "example": "You have to pay a high premium for express delivery.",
+      "type": "(n)"
+    },
+    {
+      "eng": "profit",
+      "vn": "lợi nhuận, tiền lời",
+      "example": "She makes a big profit from selling waste material to textile companies.",
+      "type": "(n)"
+    },
+    {
+      "eng": "real estate agent",
+      "vn": "nhân viên bất động sản",
+      "example": "He worked as a real estate agent.",
+      "type": "(n)"
+    },
+    {
+      "eng": "recession",
+      "vn": "tình trạng suy thoái",
+      "example": "The oil price increases sent Europe into deep recession.",
+      "type": "(n)"
+    },
+    {
+      "eng": "return",
+      "vn": "lợi nhuận",
+      "example": "Although my business is quite small, it still produces great returns.",
+      "type": "(n)"
+    },
+    {
+      "eng": "revenue",
+      "vn": "doanh thu",
+      "example": "The new products really increased the business’s monthly revenue.",
+      "type": "(n)"
+    },
+    {
+      "eng": "savings account",
+      "vn": "tài khoản tiết kiệm",
+      "example": "In the US, people who want to start a savings account have several choices.",
+      "type": "(n)"
+    },
+    {
+      "eng": "shareholder",
+      "vn": "cổ đông",
+      "example": "The bonus issue was approved by shareholders.",
+      "type": "(n)"
+    },
+    {
+      "eng": "trade",
+      "vn": "mua bán",
+      "example": "Our products are now traded worldwide.",
+      "type": "(v)"
+    },
+    {
+      "eng": "tycoon",
+      "vn": "một nhà kinh doanh giàu có, ông trùm (về kinh tế)",
+      "example": "Do you know any oil tycoon in the world?",
+      "type": "(n)"
+    },
+    {
+      "eng": "value",
+      "vn": "giá trị",
+      "example": "It helps raise property value.",
+      "type": "(n)"
+    },
+    {
+      "eng": "provider",
+      "vn": "nhà cung cấp",
+      "example": "We are one of the biggest providers of computer in the country.",
+      "type": "(n)"
+    },
+    {
+      "eng": "venture",
+      "vn": "việc mạo hiểm, dự án mạo hiểm",
+      "example": "They had successfully conducted the man\u0027s first venture into space.",
+      "type": "(n)"
     }
   ]
 }

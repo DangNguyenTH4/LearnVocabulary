@@ -9,8 +9,13 @@ import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Gui extends Frame implements ActionListener {
+	private Logger logger = LoggerFactory.getLogger(Gui.class);
 	public Gui() {
+		logger.info("Start Gui---------:");
 		Button b = new Button("Stop learning!");
 		Label engLb = new Label("English");
 		b.setBounds(100, 100, 100, 100);

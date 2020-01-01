@@ -10,11 +10,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
-import java.nio.file.FileStore;
-import java.nio.file.Files;
-import java.nio.file.LinkOption;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -56,9 +51,11 @@ public class SaveWordOffline extends SaveWord {
 	}
 
 	@Override
-	public Word saveWord(Word word) throws IOException {
+	public String saveWord(Word word) throws IOException {
+		logger.info("Save word offline is working.....");
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		ListWord listOld = readWord();
+		String message = "";
 		try (FileOutputStream os = new FileOutputStream(getFileName());
 				BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(os, "UTF8"));) {
 			String json = "";
@@ -73,22 +70,16 @@ public class SaveWordOffline extends SaveWord {
 			bw.write(json);
 		} catch (FileNotFoundException e) {
 			logger.error(e.getMessage());
+			message = "Your file is not exist!";
 		} catch (UnsupportedEncodingException e) {
 			logger.error(e.getMessage());
+			message = e.getMessage();
 		}
 		if (listOld != null) {
-			return listOld.getLst().get(0);
+			return "Save success!";
 		} else {
-			return null;
+			return "Can not save! " + message;
 		}
-	}
-
-	private boolean isFileExist(String fileName) throws IOException {
-		boolean result = false;
-		Path path = Paths.get(fileName);
-
-		result = Files.exists(path, new LinkOption[] { LinkOption.NOFOLLOW_LINKS });
-		return result;
 	}
 
 }

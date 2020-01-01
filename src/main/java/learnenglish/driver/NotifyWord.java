@@ -6,29 +6,41 @@ import java.awt.Toolkit;
 import java.awt.TrayIcon;
 import java.awt.TrayIcon.MessageType;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import learnenglish.model.Word;
+
 public class NotifyWord {
+	private Logger logger = LoggerFactory.getLogger(NotifyWord.class);
 	public void displayNotify() {
 		SystemTray tray = SystemTray.getSystemTray();
 		Image image = Toolkit.getDefaultToolkit().createImage("icon.png");
 		TrayIcon trayIcon = new TrayIcon(image,"Traydemo");
 		trayIcon.setImageAutoSize(true);
-		System.out.println("Notify");
+		logger.info("Notify");
 		trayIcon.displayMessage("helloloo","day roi", MessageType.WARNING);
-		System.out.println("Get up notify");
+		logger.info("Get up notify");
 		tray.remove(trayIcon);
 	}
 	
-//	public void displayNotify(Word word,int time) {
-//		TrayIcon trayIcon = MyTrayIcon.instance();
-//		System.out.println("Notify");
-//		trayIcon.displayMessage(word.getEng()+" : \\"+word.getPronun()+"\\ : "+word.getVn(), word.getExample(), MessageType.ERROR);
-//		System.out.println("sleep notify");
-//		try {
-//			Thread.sleep(time);
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		System.out.println("Get up notify");
-//	}
+	public void displayNotify(Word word,int time) {
+		TrayIcon trayIcon = MyTrayIcon.instance();
+		logger.info("Notify");
+		if(word.getPronun()==null) {
+			word.setPronun("");
+		}
+		else {
+			word.setPronun("/"+word.getPronun()+"/ : ");
+		}
+		trayIcon.displayMessage(word.getEng()+": " +word.getPronun()+word.getVn(), word.getExample(), MessageType.ERROR);
+		logger.info("sleep notify---"+time);
+		try {
+			Thread.sleep(time);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		logger.info("Get up notify");
+		
+	}
 }

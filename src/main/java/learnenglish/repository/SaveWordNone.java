@@ -17,8 +17,8 @@ public class SaveWordNone extends SaveWord{
 	}
 
 	@Override
-	public Word saveWord(Word word) {
-		return null;
+	public String saveWord(Word word) {
+		return "Type of learn is not offline! Please check again!";
 	}
 	
 }

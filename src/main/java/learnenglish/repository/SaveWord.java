@@ -2,6 +2,8 @@ package learnenglish.repository;
 
 import java.io.IOException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 import learnenglish.driver.ReadProperties;
@@ -10,13 +12,14 @@ import learnenglish.model.Word;
 
 public abstract class SaveWord {
 	private static String fileName="defaultVocabulary.json";
+	private Logger logger = LoggerFactory.getLogger(SaveWord.class);
 	public String getFileName() {
 		return fileName;
 	}
 	
 
 	public void setNewFileName() {
-		System.out.println("Set new file");
+		logger.info("Set new file");
 		String file = ReadProperties.getProperty("fileVocabulary");
 		System.out.println(file);
 		if (!StringUtils.isEmpty(file)) {
@@ -32,12 +35,12 @@ public abstract class SaveWord {
 	}
 
 	public boolean checkIsChangeProperties(int oldTime) {
-		System.out.println("check is new properties(filename,placeTostudy,time)");
+		logger.info("check is new properties(filename,placeTostudy,time)");
 		String file = ReadProperties.getProperty("fileVocabulary");
 		String place = ReadProperties.getProperty("placeToStudy");
 		int time = Integer.parseInt(ReadProperties.getProperty("time"));
 
-		System.out.println(place+"----"+file+"===="+time);
+		logger.info(place+"----"+file+"===="+time);
 		boolean result= !fileName.equals(StringUtils.trimAllWhitespace(file)) || !getTypeLearn().equals(StringUtils.trimAllWhitespace(place))
 				|| (time != oldTime && time>=10000);
 		return result;
@@ -46,6 +49,6 @@ public abstract class SaveWord {
 	
 	public abstract String getTypeLearn();
 	public abstract ListWord readWord() throws IOException;
-	public abstract Word saveWord(Word word) throws IOException;
+	public abstract String saveWord(Word word) throws IOException;
 
 }

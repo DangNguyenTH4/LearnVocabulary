@@ -1,11 +1,14 @@
 package learnenglish.model;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ListWord {
-	List<Word> lst;
-
+	private List<Word> lst;
+	public ListWord() {
+		lst = new ArrayList<Word>();
+	}
 	public List<Word> getLst() {
 		return lst;
 	}

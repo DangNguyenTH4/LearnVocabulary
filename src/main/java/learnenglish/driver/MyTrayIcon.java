@@ -86,7 +86,6 @@ public class MyTrayIcon extends TrayIcon {
 
 	@Override
 	public void displayMessage(String caption, String text, MessageType messageType) {
-		// TODO Auto-generated method stub
 		super.displayMessage(caption, text, messageType);
 	}
 }

@@ -10,5 +10,6 @@ public class LearnEnglish {
 	public String saveWord(Model m) {
 		m.addAttribute("name", "dangasdfadf");
 		return "index";
+		
 	}
 }
