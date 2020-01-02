@@ -5,8 +5,10 @@ import java.io.IOException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.util.StringUtils;
 
+import learnenglish.LearnEnglishBySpringBootApplication;
 import learnenglish.model.ListWord;
 import learnenglish.model.Word;
 import learnenglish.service.SaveWordService;
@@ -15,11 +17,10 @@ public class Learn implements Runnable {
 	private Logger logger = LoggerFactory.getLogger(Learn.class);
 	private SaveWordService sw;
 	private NotifyWord nt;
-
 	private Boolean continueLearn=true;
 	
 	int time = 10000;
-
+	
 	private void loadProps() {
 		logger.info("Load props time");
 		this.time = Integer.parseInt(ReadProperties.getProperty("time"));
@@ -29,7 +30,8 @@ public class Learn implements Runnable {
 	}
 
 	public Learn() {
-		sw = new SaveWordService();
+//		sw = new SaveWordService();
+		sw = LearnEnglishBySpringBootApplication.context.getBean(SaveWordService.class); 
 		nt = new NotifyWord();
 		loadProps();
 	}

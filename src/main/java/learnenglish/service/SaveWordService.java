@@ -5,10 +5,12 @@ import java.io.IOException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import learnenglish.factory.SaveWordFactory;
 import learnenglish.model.ListWord;
+import learnenglish.model.Message;
 import learnenglish.model.Word;
 import learnenglish.repository.SaveWord;
 
@@ -26,8 +28,9 @@ public class SaveWordService {
 	public SaveWordService() {
 		this.saveWord = SaveWordFactory.getInstance();
 	}
-	public String saveWord(Word word) throws IOException {
+	public Message saveWord(Word word) throws IOException {
 		logger.info("Save word in service save word running ....");
+		
 		return saveWord.saveWord(word);
 	}
 	public ListWord readWord() throws IOException {

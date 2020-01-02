@@ -2,12 +2,13 @@ package learnenglish.driver;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
 import org.springframework.util.StringUtils;
-
 
 public class ReadProperties {
 
@@ -28,20 +29,7 @@ public class ReadProperties {
 	}
 
 	public static Properties getInstance() {
-		if (props == null) {
-			System.out.println("Init props");
-			try (InputStream fis = new FileInputStream(new File(currentDir + filePropertiesName))) {
-				props = new Properties();
-				props.load(fis);
-
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		return props;
-	}
-
-	public static String getProperty(String propertyName) {
+		System.out.println("Init props");
 		try (InputStream fis = new FileInputStream(new File(currentDir + filePropertiesName))) {
 			props = new Properties();
 			props.load(fis);
@@ -49,14 +37,23 @@ public class ReadProperties {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		return props;
+	}
+
+	public static String getProperty(String propertyName) {
+//		getInstance().clear();
+
 		String result = getInstance().getProperty(propertyName);
-		getInstance().clear();
+
 		return StringUtils.trimAllWhitespace(result);
 	}
 
-	public static String setProperty(String propertyName, String value) {
-		props.clear();
-		props.setProperty(propertyName, value);
+	public static String setProperty(String propertyName, String value) throws IOException {
+		props = getInstance();
+		FileOutputStream out = new FileOutputStream("props.properties");
+		props.replace(propertyName, value);
+		props.store(out, null);
+		out.close();
 		return getProperty(propertyName);
 	}
 

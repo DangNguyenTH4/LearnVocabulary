@@ -10,14 +10,17 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
+import java.nio.file.Files;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import learnenglish.model.ListWord;
+import learnenglish.model.Message;
 import learnenglish.model.Word;
 
 public class SaveWordOffline extends SaveWord {
@@ -51,35 +54,59 @@ public class SaveWordOffline extends SaveWord {
 	}
 
 	@Override
-	public String saveWord(Word word) throws IOException {
+	public Message saveWord(Word word) throws IOException {
 		logger.info("Save word offline is working.....");
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		ListWord listOld = readWord();
+		File f = new File(getFileName());
 		String message = "";
-		try (FileOutputStream os = new FileOutputStream(getFileName());
-				BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(os, "UTF8"));) {
-			String json = "";
-			if (listOld != null) {
-				listOld.getLst().add(0, word);
-				json = gson.toJson(listOld);
-			} else {
-				ListWord ls = new ListWord();
-				ls.getLst().add(word);
-				json = gson.toJson(ls);
+		Message result = new Message();
+		if (f.exists()) {
+			try (FileOutputStream os = new FileOutputStream(getFileName());
+					BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(os, "UTF8"));) {
+				System.out.println(f.exists());
+				String json = "";
+				if (listOld != null) {
+					listOld.getLst().add(0, word);
+					json = gson.toJson(listOld);
+				} else {
+					listOld = new ListWord();
+					listOld.getLst().add(word);
+					json = gson.toJson(listOld);
+				}
+				bw.write(json);
 			}
-			bw.write(json);
-		} catch (FileNotFoundException e) {
-			logger.error(e.getMessage());
-			message = "Your file is not exist!";
-		} catch (UnsupportedEncodingException e) {
-			logger.error(e.getMessage());
-			message = e.getMessage();
-		}
-		if (listOld != null) {
-			return "Save success!";
+			catch (FileNotFoundException e) {
+				logger.error(e.getMessage());
+				message = "Your file is not exist!";
+				result.setSuccess(false);
+				result.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+			} catch (UnsupportedEncodingException e) {
+				logger.error(e.getMessage());
+				message = e.getMessage();
+				result.setSuccess(false);
+				result.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+
+			if (listOld != null) {
+				message = "Save success!";
+				result.setSuccess(true);
+				result.setStatus(HttpStatus.OK);
+			} else {
+				message = "Can not save! Something wrong! " + message;
+				result.setSuccess(false);
+				result.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+			}
 		} else {
-			return "Can not save! " + message;
+			message = "Your file is not exist!";
+			result.setSuccess(false);
+			result.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
+			
+		result.setMessage(message);
+		return result;
+
 	}
+
 
 }

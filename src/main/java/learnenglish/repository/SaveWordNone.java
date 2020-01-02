@@ -1,5 +1,8 @@
 package learnenglish.repository;
+import org.springframework.http.HttpStatus;
+
 import learnenglish.model.ListWord;
+import learnenglish.model.Message;
 import learnenglish.model.Word;
 
 public class SaveWordNone extends SaveWord{
@@ -17,8 +20,12 @@ public class SaveWordNone extends SaveWord{
 	}
 
 	@Override
-	public String saveWord(Word word) {
-		return "Type of learn is not offline! Please check again!";
+	public Message saveWord(Word word) {
+		Message message = new Message();
+		message.setSuccess(false);
+		message.setMessage("Type of learn is not offline! Please check again!");
+		message.setStatus(HttpStatus.CONFLICT);
+		return message;
 	}
 	
 }

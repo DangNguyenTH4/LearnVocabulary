@@ -8,6 +8,7 @@ import org.springframework.util.StringUtils;
 
 import learnenglish.driver.ReadProperties;
 import learnenglish.model.ListWord;
+import learnenglish.model.Message;
 import learnenglish.model.Word;
 
 public abstract class SaveWord {
@@ -41,7 +42,7 @@ public abstract class SaveWord {
 		int time = Integer.parseInt(ReadProperties.getProperty("time"));
 
 		logger.info(place+"----"+file+"===="+time);
-		boolean result= !fileName.equals(StringUtils.trimAllWhitespace(file)) || !getTypeLearn().equals(StringUtils.trimAllWhitespace(place))
+		boolean result= !fileName.equalsIgnoreCase(StringUtils.trimAllWhitespace(file)) || !getTypeLearn().equalsIgnoreCase(StringUtils.trimAllWhitespace(place))
 				|| (time != oldTime && time>=10000);
 		return result;
 	}
@@ -49,6 +50,6 @@ public abstract class SaveWord {
 	
 	public abstract String getTypeLearn();
 	public abstract ListWord readWord() throws IOException;
-	public abstract String saveWord(Word word) throws IOException;
+	public abstract Message saveWord(Word word) throws IOException;
 
 }

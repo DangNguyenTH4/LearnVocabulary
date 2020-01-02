@@ -22,14 +22,14 @@ public class SaveWordFactory {
 	public static SaveWord getInstance() {
 		String placeFile = ReadProperties.getProperty("placeToStudy");
 		logger.info(placeFile);
-		if("online".equals(StringUtils.trimAllWhitespace(placeFile))) {
+		if("online".equalsIgnoreCase(StringUtils.trimAllWhitespace(placeFile))) {
 			if(swOnline==null) {
 				logger.info("Online Saveword init");
 				swOnline=new SaveWordOnline();
 			}
 			return swOnline;
 		}
-		else if("offline".equals(StringUtils.trimAllWhitespace(placeFile))) {
+		else if("offline".equalsIgnoreCase(StringUtils.trimAllWhitespace(placeFile))) {
 			logger.info("Offline Saveword init");
 			if(swOffline==null) {
 				swOffline=new SaveWordOffline();

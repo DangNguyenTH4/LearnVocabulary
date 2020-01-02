@@ -4,9 +4,11 @@ import java.io.IOException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 
 import learnenglish.driver.NetworkConnector;
 import learnenglish.model.ListWord;
+import learnenglish.model.Message;
 import learnenglish.model.Word;
 
 public class SaveWordOnline extends SaveWord {
@@ -30,8 +32,11 @@ public class SaveWordOnline extends SaveWord {
 	}
 
 	@Override
-	public String saveWord(Word word) {
-		return "You are in online mode! You can not save anything!";
+	public Message saveWord(Word word) {
+		Message m = new Message();
+		m.setMessage("You are in online mode! You can not save anything!");
+		m.setStatus(HttpStatus.NOT_IMPLEMENTED);
+		return m;
 	}
 
 }
