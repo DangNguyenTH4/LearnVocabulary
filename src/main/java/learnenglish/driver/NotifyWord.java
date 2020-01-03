@@ -25,7 +25,7 @@ public class NotifyWord {
 	}
 	
 	public void displayNotify(Word word,int time) {
-		TrayIcon trayIcon = MyTrayIcon.instance();
+		MyTrayIcon trayIcon = new MyTrayIcon();
 		logger.info("Notify");
 		if(word.getPronun()==null) {
 			word.setPronun("");
@@ -41,6 +41,6 @@ public class NotifyWord {
 			e.printStackTrace();
 		}
 		logger.info("Get up notify");
-		
+		trayIcon.remove();
 	}
 }
