@@ -9,6 +9,6 @@ public class Application {
 		Learn learn = new Learn();
 		Thread t = new Thread(learn);
 		t.start();
-		Gui gui = new Gui();
+		new Gui();
 	}
 }

@@ -2,7 +2,6 @@ package learnenglish.driver;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,7 +17,6 @@ public class ReadProperties {
 
 	private ReadProperties() {
 
-		System.out.println("Init props");
 		try (InputStream fis = new FileInputStream(new File(currentDir + filePropertiesName))) {
 			props = new Properties();
 			props.load(fis);
@@ -41,10 +39,7 @@ public class ReadProperties {
 	}
 
 	public static String getProperty(String propertyName) {
-//		getInstance().clear();
-
 		String result = getInstance().getProperty(propertyName);
-
 		return StringUtils.trimAllWhitespace(result);
 	}
 

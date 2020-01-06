@@ -13,11 +13,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Gui extends Frame implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Logger logger = LoggerFactory.getLogger(Gui.class);
 	public Gui() {
 		logger.info("Start Gui---------:");
 		Button b = new Button("Stop learning!");
-		Label engLb = new Label("English");
 		b.setBounds(100, 100, 100, 100);
 		b.setLocation(250,250);
 //		add(b);
@@ -46,8 +49,7 @@ public class Gui extends Frame implements ActionListener {
 	
 	private Panel createLable() {
 		Panel p = new Panel();
-		Label eng = new Label("English"),vn= new Label("VN"),
-				pronun = new Label("Pronunciation"), example = new Label("Example");
+		Label eng = new Label("English");
 		p.add(eng);
 		TextField ta = new TextField();
 		ta.setSize(200, HEIGHT);

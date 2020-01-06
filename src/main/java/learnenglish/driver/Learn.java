@@ -4,9 +4,6 @@ import java.io.IOException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.util.StringUtils;
 
 import learnenglish.LearnEnglishBySpringBootApplication;
 import learnenglish.model.ListWord;
@@ -30,14 +27,12 @@ public class Learn implements Runnable {
 	}
 
 	public Learn() {
-//		sw = new SaveWordService();
 		sw = LearnEnglishBySpringBootApplication.context.getBean(SaveWordService.class); 
 		nt = new NotifyWord();
 		loadProps();
 	}
 	public Learn(Boolean continueLearn) {
 		this.continueLearn = continueLearn;
-//		sw = SaveWordFactory.getInstance();
 		nt = new NotifyWord();
 		loadProps();
 	}
@@ -80,13 +75,6 @@ public class Learn implements Runnable {
 				e.printStackTrace();
 			}
 		}
-	}
-	private boolean prepareWord(Word word) {
-		boolean prepareSuccess = true;
-		if(StringUtils.isEmpty(word.getEng())) {
-			prepareSuccess=false;
-		}
-		return prepareSuccess;
 	}
 	public void setContinue(boolean con) {
 		this.continueLearn = con;
