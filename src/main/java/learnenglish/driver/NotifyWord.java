@@ -25,7 +25,7 @@ public class NotifyWord {
 	}
 	
 	public void displayNotify(Word word,int time) {
-		TrayIcon trayIcon = MyTrayIcon.instance();
+		MyTrayIcon trayIcon = new MyTrayIcon();
 		logger.info("Notify");
 		logger.info(word.getIsRemember()+"");
 		if(word.getPronun()==null) {
@@ -42,6 +42,6 @@ public class NotifyWord {
 			e.printStackTrace();
 		}
 		logger.info("Get up notify");
-		
+		trayIcon.remove();
 	}
 }

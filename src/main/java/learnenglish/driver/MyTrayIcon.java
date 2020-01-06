@@ -29,14 +29,13 @@ public class MyTrayIcon extends TrayIcon {
 	private PopupMenu popup;
 	final SystemTray tray;
 
-	private MyTrayIcon() {
+	public MyTrayIcon() {
 		super(createImage(IMAGE_PATH, TOOLTIP), TOOLTIP);
 		popup = new PopupMenu();
 		tray = SystemTray.getSystemTray();
 		try {
 			setup();
 		} catch (AWTException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -91,5 +90,9 @@ public class MyTrayIcon extends TrayIcon {
 	@Override
 	public void displayMessage(String caption, String text, MessageType messageType) {
 		super.displayMessage(caption, text, messageType);
+	}
+	
+	public void remove() {
+		tray.remove(MyTrayIcon.this);
 	}
 }
