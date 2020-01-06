@@ -5,52 +5,90 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<style>
+form {
+	text-align: center;
+	width: 20%;
+	margin-left: 40%;
+}
+body {
+	background:
+		url(https://img.buzzfeed.com/buzzfeed-static/static/2016-12/25/11/asset/buzzfeed-prod-web-08/anigif_sub-buzz-9934-1482681661-6.gif)
+		;
+	background-size:100%;
+}
+
+
+div {
+	margin-bottom: 10px;
+}
+
+datalist {
+	display: none;
+}
+</style>
 </head>
 <body>
-	<!-- <p th:text="'Hello, ' + ${name} + '!'" /> -->
-	<h1 style="width:100%;text-align:center">Configuration</h1>
-	<form action="config-learn" method="get" >
-		<div class="">
+
+	<h1 style="width: 100%; text-align: center">Configuration</h1>
+	<p th:if=${message.success}
+		style="width: 100%; text-align: center; color: blue" id="message"
+		th:text="${message.message}"></p>
+	<p th:unless=${message.success}
+		style="width: 100%; text-align: center; color: red" id="message"
+		th:text="${message.message}"></p>
+	<form action="config-learn" method="get">
+		<div class="row">
 			<div class="col">
 				<input type="text" class="form-control" id="eng"
-					placeholder="Method learn (Online/Offline)" name="placeToStudy">
+					placeholder="Method learn (Online/Offline)" name="placeToStudy"
+					th:value="${placeToStudy}">
 			</div>
-			
+
 		</div>
 
-		<div class="">
+		<div class="row">
 			<div class="col">
 				<input type="text" class="form-control" id="vn"
-					placeholder="Time to notify (milisecond)" name="time">
+					placeholder="Time to notify (milisecond)" name="time"
+					th:value="${time}">
 			</div>
 
 		</div>
+
+		<div class="row">
+
+			<div class="col">
+				<input class="form-control" list="fileVocabulary"
+					name="fileVocabulary" placeholder="Subject"
+					th:value="${fileVocabulary}">
+				<datalist id="fileVocabulary" hidden="true">
+					<option th:each="i : ${listSubject}" th:value="${i.subject}"
+						th:text="${i.subject}"></option>
+				</datalist>
+			</div>
+		</div>
+
 
 		<div class="">
-			<div class="col">
-				<input type="text" class="form-control" id="pronun"
-					placeholder="Subject" name="fileVocabulary">
-			</div>
+			<button style="width: 100%; text-align: center"
+				class="btn btn-primary mt-3">Submit</button>
 		</div>
-
-
-
-		<button style="width:100%;text-align:center" class="btn btn-primary mt-3">Submit</button>
 	</form>
 	<script>
-		function save(eng,vn,pronun,example,type){
+		function save(eng, vn, pronun, example, type) {
 			console.log(eng);
 			var xhr = new XMLHttpRequest();
-			
-			xhr.open('POST','http://localhost:8000/save-word');
-			xhr.setRequestHeader('Content-Type','application/json');
+
+			xhr.open('POST', 'http://localhost:8000/save-word');
+			xhr.setRequestHeader('Content-Type', 'application/json');
 			xhr.send(JSON.stringify({
-				"eng":eng,
-				"vn":vn,
-				"pronun":pronun,
-				"example":example,
-				"type":type})
-			);
+				"eng" : eng,
+				"vn" : vn,
+				"pronun" : pronun,
+				"example" : example,
+				"type" : type
+			}));
 		}
 	</script>
 </body>

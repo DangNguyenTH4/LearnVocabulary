@@ -10,6 +10,9 @@ public class LearnEnglish {
 	public String saveWord(Model m) {
 		m.addAttribute("name", "dangasdfadf");
 		return "index";
-		
+	}
+	@GetMapping("/30days")
+	public String get30days() {
+		return "30daytuluyen"; 
 	}
 }

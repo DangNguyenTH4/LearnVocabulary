@@ -15,7 +15,6 @@ public class LearnEnglishBySpringBootApplication {
 	        builder.headless(false);
 	        context = builder.run(args);
 	        Application.main(null);
-
 	        
 	    }
 

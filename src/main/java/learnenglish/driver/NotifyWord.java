@@ -27,6 +27,7 @@ public class NotifyWord {
 	public void displayNotify(Word word,int time) {
 		TrayIcon trayIcon = MyTrayIcon.instance();
 		logger.info("Notify");
+		logger.info(word.getIsRemember()+"");
 		if(word.getPronun()==null) {
 			word.setPronun("");
 		}

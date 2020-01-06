@@ -6,6 +6,15 @@ public class Word {
 	private String example;
 	private String pronun;
 	private String type;
+	private boolean isRemember;
+	
+	public boolean getIsRemember() {
+		return isRemember;
+	}
+
+	public void setIsRemember(boolean isRemember) {
+		this.isRemember = isRemember;
+	}
 
 	public String getType() {
 		return type;

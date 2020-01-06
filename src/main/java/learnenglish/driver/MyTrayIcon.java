@@ -8,18 +8,22 @@ import java.awt.SystemTray;
 import java.awt.TrayIcon;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.swing.ImageIcon;
 
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.ExitCodeGenerator;
 import org.springframework.boot.SpringApplication;
 
 import learnenglish.LearnEnglishBySpringBootApplication;
+import learnenglish.model.Subject;
 
 public class MyTrayIcon extends TrayIcon {
-
+	private static NetworkConnector nc = new NetworkConnector();
 	private static final String IMAGE_PATH = "";
 	private static final String TOOLTIP = "Running";
 	private PopupMenu popup;
@@ -53,6 +57,7 @@ public class MyTrayIcon extends TrayIcon {
 		popup.add(exitItem);
 		exitItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				final int exitCode = 0;
 				ExitCodeGenerator exitCodeGenerator = new ExitCodeGenerator() {
 
@@ -62,7 +67,6 @@ public class MyTrayIcon extends TrayIcon {
 					}
 
 				};
-
 				tray.remove(MyTrayIcon.this);
 				SpringApplication.exit(LearnEnglishBySpringBootApplication.context, exitCodeGenerator);
 			}
