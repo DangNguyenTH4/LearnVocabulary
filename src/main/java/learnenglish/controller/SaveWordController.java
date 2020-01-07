@@ -3,9 +3,7 @@ package learnenglish.controller;
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,10 +34,11 @@ public class SaveWordController {
 //		return lst;
 	}
 	
-	@ExceptionHandler(RuntimeException.class)
-    public ResponseEntity<String> handleException(Exception ex) {
-        System.out.println("Handle");
-        return new ResponseEntity<String>(ex.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
-    }
 	
+//	@ExceptionHandler(RuntimeException.class)
+//    public ResponseEntity<String> handleException(Exception ex) {
+//        System.out.println("Handle");
+//        return new ResponseEntity<String>(ex.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
+//    }
+//	
 }

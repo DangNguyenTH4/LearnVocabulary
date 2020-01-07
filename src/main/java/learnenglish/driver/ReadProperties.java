@@ -27,7 +27,6 @@ public class ReadProperties {
 	}
 
 	public static Properties getInstance() {
-		System.out.println("Init props");
 		try (InputStream fis = new FileInputStream(new File(currentDir + filePropertiesName))) {
 			props = new Properties();
 			props.load(fis);

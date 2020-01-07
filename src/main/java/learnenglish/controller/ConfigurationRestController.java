@@ -21,15 +21,6 @@ public class ConfigurationRestController {
 		Message message = configurationService.config(placeToStudy,time,fileVocabulary);
 		model.addAttribute("listSubject", listSubject);
 		model.addAttribute("message", message);
-//		if(StringUtils.isEmpty(placeToStudy)&& StringUtils.isEmpty(time)&&StringUtils.isEmpty(fileVocabulary)) {
-//			placeToStudy = ReadProperties.getProperty("placeToStudy");
-//			time=ReadProperties.getProperty("time");
-//			fileVocabulary = ReadProperties.getProperty("fileVocabulary");
-//			model.addAttribute("placeToStudy", placeToStudy);
-//			model.addAttribute("time", time);
-//			model.addAttribute("fileVocabulary", fileVocabulary);
-//		}
-		
 		
 		return "configuration";
 	}
