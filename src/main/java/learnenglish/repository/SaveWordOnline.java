@@ -39,4 +39,10 @@ public class SaveWordOnline extends SaveWord {
 		return m;
 	}
 
+	@Override
+	public boolean updateList(ListWord lst) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

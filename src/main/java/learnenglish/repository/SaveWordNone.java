@@ -27,5 +27,10 @@ public class SaveWordNone extends SaveWord{
 		message.setStatus(HttpStatus.CONFLICT);
 		return message;
 	}
+
+	@Override
+	public boolean updateList(ListWord lst) {
+		return false;
+	}
 	
 }

@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 
 import learnenglish.LearnEnglishBySpringBootApplication;
 import learnenglish.model.ListWord;
@@ -14,6 +16,7 @@ public class Learn implements Runnable {
 	private Logger logger = LoggerFactory.getLogger(Learn.class);
 	private SaveWordService sw;
 	private NotifyWord nt;
+	private NetworkConnector nc = new NetworkConnector();
 	private Boolean continueLearn=true;
 	
 	int time = 10000;
@@ -59,6 +62,10 @@ public class Learn implements Runnable {
 					i=-1;size=0;
 				}
 				if (i >= size || i == -1) {
+					if(lst!=null && lst.getLst().size()!=0) {
+						sw.updateList(lst);
+					}
+					
 					//When learn a cycle of list : will load list voca again 
 					lst = sw.readWord();
 					if (lst != null && lst.getLst() != null) {
@@ -67,6 +74,11 @@ public class Learn implements Runnable {
 					i = 0;
 				}
 				if (i < size) {
+					Word word = lst.getLst().get(i);
+					if(StringUtils.isEmpty(word.getPronun())) {
+						String pronun = nc.googleConnector(word.getEng());
+						word.setPronun(pronun);
+					}
 					nt.displayNotify((Word) lst.getLst().get(i),time);
 				}
 				i++;

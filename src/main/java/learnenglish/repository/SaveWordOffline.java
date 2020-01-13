@@ -107,5 +107,52 @@ public class SaveWordOffline extends SaveWord {
 
 	}
 
+	@Override
+	public boolean updateList(ListWord lst) {
+		logger.info("Update listword is working.....");
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		File f = new File(getFileName());
+		String message = "";
+		Message result = new Message();
+		if (f.exists()) {
+			try (FileOutputStream os = new FileOutputStream(getFileName());
+					BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(os, "UTF8"));) {
+				System.out.println(f.exists());
+				String json = "";
+				if (lst != null) {
+					json = gson.toJson(lst);
+					bw.write(json);
+				} 
+				
+				result.setSuccess(true);
+			}
+			catch (FileNotFoundException e) {
+				logger.error(e.getMessage());
+				message = "Your file is not exist!";
+				result.setSuccess(false);
+				result.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+			} catch (UnsupportedEncodingException e) {
+				logger.error(e.getMessage());
+				message = e.getMessage();
+				result.setSuccess(false);
+				result.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+			} catch (IOException e) {
+				logger.error(e.getMessage());
+				message = e.getMessage();
+				result.setSuccess(false);
+				result.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+
+			
+		} else {
+			message = "Your file is not exist!";
+			result.setSuccess(false);
+			result.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+			
+		result.setMessage(message);
+		return result.isSuccess();
+	}
+
 
 }

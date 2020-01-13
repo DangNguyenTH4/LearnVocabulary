@@ -47,7 +47,7 @@ public abstract class SaveWord {
 		return result;
 	}
 
-	
+	public abstract boolean updateList(ListWord lst);
 	public abstract String getTypeLearn();
 	public abstract ListWord readWord() throws IOException;
 	public abstract Message saveWord(Word word) throws IOException;

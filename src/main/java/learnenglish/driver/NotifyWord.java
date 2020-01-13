@@ -28,13 +28,14 @@ public class NotifyWord {
 		MyTrayIcon trayIcon = new MyTrayIcon();
 		logger.info("Notify");
 		logger.info(word.getIsRemember()+"");
+		String pronun ="";
 		if(word.getPronun()==null) {
 			word.setPronun("");
 		}
 		else {
-			word.setPronun("/"+word.getPronun()+"/ : ");
+			pronun = word.getPronun()+" : ";
 		}
-		trayIcon.displayMessage(word.getEng()+": " +word.getPronun()+word.getVn(), word.getExample(), MessageType.ERROR);
+		trayIcon.displayMessage(word.getEng()+": " +pronun+word.getVn(), word.getExample(), MessageType.ERROR);
 		logger.info("sleep notify---"+time);
 		try {
 			Thread.sleep(time);

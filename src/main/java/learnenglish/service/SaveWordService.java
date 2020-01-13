@@ -56,4 +56,7 @@ public class SaveWordService {
 	public String getTypeLearn() {
 		return saveWord.getTypeLearn();
 	}
+	public boolean updateList(ListWord lst) {
+		return saveWord.updateList(lst);
+	}
 }
