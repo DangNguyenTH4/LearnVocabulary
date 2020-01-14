@@ -1,0 +1,23 @@
+{ "lst":[
+{"eng":"travel","type":"(v)","vn":"đi du lịch","example":"We are going to travel to Vietnam on this Christmas."},
+{"eng":"travel agent","type":"(n)","vn":"đại lý du lịch","example":"I have to go the travel agent to buy ticket to Japan."},
+{"eng":"vacation","type":"(n)","vn":"kỳ nghỉ","example":"We're taking a vacation in June."},
+{"eng":"flight","type":"(n)","vn":"chuyến bay","example":"I'll never forget my first flight."},
+{"eng":"voyage","type":"(n)","vn":"chuyến du lịch xa (bằng đường biển, hoặc đường hàng không)","example":"He was a young sailor on his first sea voyage."},
+{"eng":"relax","type":"(v)","vn":"thư giãn","example":"After work he relaxed with a cup of tea and the newspaper."},
+{"eng":"cancel","type":"(v)","vn":"hủy","example":"The trip is cancelled because of the bad weather."},
+{"eng":"homestay","type":"(n)","vn":"dịch vụ ở tại nhà người bản xứ","example":"The journey includes a homestay in a traditional village."},
+{"eng":"souvenir","type":"(n)","vn":"quà lưu niệm","example":"We brought back a few souvenirs from our holiday in Greece."},
+{"eng":"travel sickness","type":"(n)","vn":"sự say tàu xe","example":"Do not read while traveling if you are subject to travel sickness."},
+{"eng":"journey","type":"(n)","vn":"hành trình","example":"I love going on long journeys."},
+{"eng":"peak season","type":"(n)","vn":"mùa cao điểm","example":"Some travel companies offer deals even in peak season."},
+{"eng":"route","type":"(n)","vn":"lộ trình, tuyến đường","example":"The route we had planned took us right across Greece."},
+{"eng":"trip","type":"(n)","vn":"chuyến đi ngắn ngày","example":"The trip from New York to Newcastle takes about an hour by train."},
+{"eng":"excursion","type":"(n)","vn":"chuyến tham quan","example":"Next week we're going on an excursion."},
+{"eng":"luggage","type":"(n)","vn":"hành lí","example":"He's been checked luggage before boarding."},
+{"eng":"tourist","type":"(n)","vn":"du khách","example":"Millions of tourists visit London every year."},
+{"eng":"ticket","type":"(n)","vn":"vé","example":"He bought ticket to America."},
+{"eng":"eager","type":"(adj)","vn":"háo hức, hăm hở","example":"Children was very eager to travel."},
+{"eng":"sunglasses","type":"(n)","vn":"kính mát, kính râm","example":"The driver's wearing dark sunglasses."},
+{"eng":"safari","type":"(n)","vn":"thám hiểm thiên nhiên","example":"I am on safari."}
+]}

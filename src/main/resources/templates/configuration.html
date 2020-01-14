@@ -75,22 +75,6 @@ datalist {
 				class="btn btn-primary mt-3">Submit</button>
 		</div>
 	</form>
-	<script>
-		function save(eng, vn, pronun, example, type) {
-			console.log(eng);
-			var xhr = new XMLHttpRequest();
-
-			xhr.open('POST', 'http://localhost:8000/save-word');
-			xhr.setRequestHeader('Content-Type', 'application/json');
-			xhr.send(JSON.stringify({
-				"eng" : eng,
-				"vn" : vn,
-				"pronun" : pronun,
-				"example" : example,
-				"type" : type
-			}));
-		}
-	</script>
 </body>
 
 </html>

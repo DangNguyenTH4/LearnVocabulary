@@ -17,11 +17,12 @@ public class ConfigurationRestController {
 	private ConfigurationService configurationService;
 	@GetMapping("config-learn")
 	public String config(String placeToStudy, String time, String fileVocabulary, Model model) {
+		System.out.println("Call config learn");
 		List<Subject> listSubject = configurationService.getListSubject();
 		Message message = configurationService.config(placeToStudy,time,fileVocabulary);
 		model.addAttribute("listSubject", listSubject);
 		model.addAttribute("message", message);
-		
+		System.out.println("Return configuration");
 		return "configuration";
 	}
 	

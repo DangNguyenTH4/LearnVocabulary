@@ -16,6 +16,7 @@ import org.apache.http.util.EntityUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -90,7 +91,7 @@ public class NetworkConnector {
 			CloseableHttpResponse response = httpClient.execute(request);
 			try {
 				if (isConnectSuccess(response)) {
-					System.out.println("Connect Success");
+					logger.info("Connect Success");
 					HttpEntity entity = response.getEntity();
 					if (entity != null) {
 						logger.info("get list subject from file ...");
@@ -115,17 +116,24 @@ public class NetworkConnector {
 	}
 
 	public String googleConnector(String word) throws IOException {
+		logger.info("get pronunciation from web laban.vn .....");
 		word = word.replaceAll(" ", "%20");
 		Document doc = Jsoup.connect("https://dict.laban.vn/find?type=1&query=" + word).get();
-		System.out.println(word);
-		String pronun = doc.getElementsByClass("color-black").get(0).text();
-		System.out.println(pronun);
 		String result ="";
-		if (!StringUtils.isEmpty(pronun)) {
-			if (pronun.startsWith("/") && pronun.endsWith("/"))
-				result = pronun;
+		logger.info(word);
+		if(doc!=null) {
+			Elements pronunElement = doc.getElementsByClass("color-black");
+			if(pronunElement!=null && pronunElement.size()!=0) {
+				String pronun = pronunElement.get(0).text();
+				logger.info(pronun);
+				if (!StringUtils.isEmpty(pronun)) {
+					if (pronun.startsWith("/") && pronun.endsWith("/"))
+						result = pronun;
+				}
+			}
+			
 		}
-		System.out.println(result);
+		
 		return result;
 	}
 

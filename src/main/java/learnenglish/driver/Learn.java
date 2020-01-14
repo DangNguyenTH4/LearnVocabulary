@@ -17,23 +17,24 @@ public class Learn implements Runnable {
 	private SaveWordService sw;
 	private NotifyWord nt;
 	private NetworkConnector nc = new NetworkConnector();
-	private Boolean continueLearn=true;
-	
+	private Boolean continueLearn = true;
+
 	int time = 10000;
-	
+
 	private void loadProps() {
 		logger.info("Load props time");
 		this.time = Integer.parseInt(ReadProperties.getProperty("time"));
-		if(this.time<10000) {
-			this.time=10000;
+		if (this.time < 10000) {
+			this.time = 10000;
 		}
 	}
 
 	public Learn() {
-		sw = LearnEnglishBySpringBootApplication.context.getBean(SaveWordService.class); 
+		sw = LearnEnglishBySpringBootApplication.context.getBean(SaveWordService.class);
 		nt = new NotifyWord();
 		loadProps();
 	}
+
 	public Learn(Boolean continueLearn) {
 		this.continueLearn = continueLearn;
 		nt = new NotifyWord();
@@ -52,21 +53,22 @@ public class Learn implements Runnable {
 			try {
 				System.gc();
 //				Thread.sleep(time);
-				String a = (sw==null)+"";
+				String a = (sw == null) + "";
 				logger.info(a);
-				if(sw.checkIsChangeProperties(time)) {
+				if (sw.checkIsChangeProperties(time)) {
 					logger.info("new file");
 					sw.setSaveWord();
 					sw.setNewFileName();
 					loadProps();
-					i=-1;size=0;
+					i = -1;
+					size = 0;
 				}
 				if (i >= size || i == -1) {
-					if(lst!=null && lst.getLst().size()!=0) {
+					if (lst != null && lst.getLst().size() != 0 && size != 0) {
 						sw.updateList(lst);
 					}
-					
-					//When learn a cycle of list : will load list voca again 
+
+					// When learn a cycle of list : will load list voca again
 					lst = sw.readWord();
 					if (lst != null && lst.getLst() != null) {
 						size = lst.getLst().size();
@@ -75,11 +77,11 @@ public class Learn implements Runnable {
 				}
 				if (i < size) {
 					Word word = lst.getLst().get(i);
-					if(StringUtils.isEmpty(word.getPronun())) {
+					if (StringUtils.isEmpty(word.getPronun())) {
 						String pronun = nc.googleConnector(word.getEng());
 						word.setPronun(pronun);
 					}
-					nt.displayNotify((Word) lst.getLst().get(i),time);
+					nt.displayNotify((Word) lst.getLst().get(i), time);
 				}
 				i++;
 
@@ -88,6 +90,7 @@ public class Learn implements Runnable {
 			}
 		}
 	}
+
 	public void setContinue(boolean con) {
 		this.continueLearn = con;
 	}
