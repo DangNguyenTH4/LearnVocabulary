@@ -1,7 +1,6 @@
 package learnenglish.driver;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.List;
 
 import org.apache.http.HttpEntity;
@@ -15,7 +14,6 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
