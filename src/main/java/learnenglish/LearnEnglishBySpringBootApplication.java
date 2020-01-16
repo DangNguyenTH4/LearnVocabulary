@@ -4,6 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 
+import TestRepositoryMany.Test;
+
 @SpringBootApplication
 public class LearnEnglishBySpringBootApplication {
 
@@ -15,6 +17,7 @@ public class LearnEnglishBySpringBootApplication {
 	        builder.headless(false);
 	        context = builder.run(args);
 	        Application.main(null);
+	        Test.main(null);
 	        
 	    }
 

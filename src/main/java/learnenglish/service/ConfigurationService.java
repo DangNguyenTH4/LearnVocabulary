@@ -3,6 +3,8 @@ package learnenglish.service;
 import java.io.IOException;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -15,9 +17,11 @@ import learnenglish.model.Subject;
 
 @Service
 public class ConfigurationService {
+	private Logger logger = LoggerFactory.getLogger(ConfigurationService.class);
 	@Autowired
 	private NetworkConnector networkConnector;
 	public Message config(String placeToStudy, String time, String file) {
+		logger.info("Configing .... ");
 		Message m = new Message();
 		try {
 		if(!StringUtils.isEmpty(placeToStudy)) {

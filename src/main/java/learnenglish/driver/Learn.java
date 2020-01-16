@@ -17,7 +17,7 @@ public class Learn implements Runnable {
 	private NotifyWord nt;
 	private NetworkConnector nc = new NetworkConnector();
 	private Boolean continueLearn = true;
-
+	private Speaker speaker = new Speaker();
 	int time = 10000;
 
 	private void loadProps() {
@@ -80,7 +80,13 @@ public class Learn implements Runnable {
 						String pronun = nc.googleConnector(word.getEng());
 						word.setPronun(pronun);
 					}
-					nt.displayNotify((Word) lst.getLst().get(i), time);
+					new Thread(()-> {
+						logger.info("Speak");
+						speaker.play(word.getEng());
+					}).start();
+					nt.displayNotify(word, time);
+					
+					
 				}
 				i++;
 
