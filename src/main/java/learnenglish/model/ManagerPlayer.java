@@ -1,12 +1,13 @@
 package learnenglish.model;
 
+import java.io.Closeable;
 import java.io.IOException;
 
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.DataLine.Info;
 
-public class ManagerPlayer {
+public class ManagerPlayer implements Closeable {
 	private AudioFormat audioFormat;
 	private Info in;
 	private AudioInputStream inputStream;
@@ -29,6 +30,12 @@ public class ManagerPlayer {
 		this.inputStream = inputStream;
 	}
 	public void closeAudioInputStream() throws IOException {
+		if(inputStream!=null) {
+			inputStream.close();
+		}
+	}
+	@Override
+	public void close() throws IOException {
 		if(inputStream!=null) {
 			inputStream.close();
 		}

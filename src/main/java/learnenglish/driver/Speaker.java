@@ -13,40 +13,52 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.SourceDataLine;
 import javax.sound.sampled.UnsupportedAudioFileException;
+
+import learnenglish.model.ManagerPlayer;
+
 import javax.sound.sampled.DataLine.Info;
 
 public class Speaker {
-	public void play(String Path) {
-//		final File file = new File(Path);
-		URL file=null;
-		try {
-			file = new URL("https://howjsay.com/mp3/car.mp3");
-		} catch (MalformedURLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-
-		try (final AudioInputStream inputStream = getAudioInputStream(file)) {
-
-			final AudioFormat audioFormat = getOutputFormat(inputStream.getFormat());
-			final Info in = new Info(SourceDataLine.class, audioFormat);
-
-			try (final SourceDataLine dataline = (SourceDataLine) AudioSystem.getLine(in)) {
-
-				if (dataline != null) {
-					dataline.open(audioFormat);
-					dataline.start();
-					stream(getAudioInputStream(audioFormat, inputStream), dataline);
-					dataline.drain();
-					dataline.stop();
-				}
+	public void play(String words) {
+			
+			try(ManagerPlayer mp1 = createManagerPlayer(words)) {
+				playOne(mp1);
+			} catch (UnsupportedAudioFileException | IOException e) {
+				e.printStackTrace();
+			} catch (LineUnavailableException e) {
+				e.printStackTrace();
 			}
+		
+	}
+	private ManagerPlayer createManagerPlayer(String word) throws UnsupportedAudioFileException, IOException {
+		URL file = null;
+		file = new URL("https://howjsay.com/mp3/"+word+".mp3");
+		AudioInputStream inputStream = getAudioInputStream(file);
+		AudioFormat audioFormat = getOutputFormat(inputStream.getFormat());
+		Info in = new Info(SourceDataLine.class, audioFormat);
+		ManagerPlayer mp = new ManagerPlayer();
+		mp.setAudioFormat(audioFormat);
+		mp.setIn(in);
+		mp.setAudioFormat(audioFormat);
+		return mp;
+		
+	}
+	private void playOne(ManagerPlayer mp) throws LineUnavailableException, IOException {
+		Info in = mp.getIn();
+		AudioInputStream inputStream = mp.getInputStream();
+		AudioFormat audioFormat = mp.getAudioFormat();
+		
+		try (final SourceDataLine dataline = (SourceDataLine) AudioSystem.getLine(in)) {
 
-		} catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
-			throw new IllegalStateException(e);
+			if (dataline != null) {
+				dataline.open(audioFormat);
+				dataline.start();
+				stream(getAudioInputStream(audioFormat, inputStream), dataline);
+				dataline.drain();
+				dataline.stop();
+			}
 		}
 	}
-
 	private AudioFormat getOutputFormat(AudioFormat audioFormat) {
 		final int channel = audioFormat.getChannels();
 		final float audiorate = audioFormat.getSampleRate();
